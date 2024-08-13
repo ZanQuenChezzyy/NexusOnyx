@@ -200,6 +200,7 @@ export const authFormSchema = (type: string) => z.object({
   firstName: type === 'sign-in' ? z.string().optional() : z.string().min(4),
   lastName: type === 'sign-in' ? z.string().optional() : z.string().min(4),
   address1: type === 'sign-in' ? z.string().optional() : z.string().max(50),
+  city: type === 'sign-in' ? z.string().optional() : z.string().max(50),
   state: type === 'sign-in' ? z.string().optional() : z.string().min(2).max(2),
   postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
   dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
@@ -208,7 +209,7 @@ export const authFormSchema = (type: string) => z.object({
   email: z.string().email({
     message: "Email is Invalid"
   }).min(8, {
-      message: "Email must be at Least 8 characters"
+    message: "Email must be at Least 8 characters"
   }),
   password: z.string().min(8, {
     message: "Password must be at Least 8 characters"
